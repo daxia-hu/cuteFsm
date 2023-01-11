@@ -19,13 +19,26 @@ typedef void (*eventHandle)(uint32_t event, uint32_t param);
 // 状态机类型
 typedef struct FsmObj_t
 {
-    uint8_t super;       // 所属的父节点
     uint8_t active;      // 复合状态时为活动状态，简单状态时为历史状态
+    FsmObj* super;       // 所属的父节点
     entryHandle entry;   // 进入活动
     exitHandle exit;     // 退出活动
     workHandle work;     // 轮询活动
     eventHandle event;   // 事件回调
     FsmObj **node;       // 子状态列表
 } FsmObj;
+
+/**
+ * brief 状态机状态切换
+ * param workObj 当前状态
+ * param workObj 目标状态
+ * /
+void FSM_transState(FsmObj *workObj,FsmObj *targetObj);
+/**
+ * brief 状态机初始化
+ * param workObj 最终活动状态
+ * param targetObj 初始状态
+ **/
+void FSM_init(FsmObj *workObj,FsmObj *initObj);
 
 #endif

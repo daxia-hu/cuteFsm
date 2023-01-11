@@ -2,11 +2,11 @@
 
 void topWork(void)
 {
-    TopState.node[TopState.activeState]->work();
+    TopState.node[TopState.active]->work();
 }
 void topEntry(void)
 {
-    TopState.node[TopState.activeState]->entry();
+    TopState.node[TopState.active]->entry();
 }
 void topEvent(uint32_t event,uint32_t param)
 {
@@ -19,9 +19,12 @@ void topEvent(uint32_t event,uint32_t param)
     default:
         break;
     };
-    if(TopState.node[TopState.activeState]->event)
+    if(TopState.super)
     {
-        TopState.node[TopState.activeState]->event(event,param);
+        if(TopState.super->event)
+        {
+            TopState.super->event(event,param);
+        }
     }
 }
 

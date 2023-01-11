@@ -7,6 +7,7 @@ typedef enum
 {
     WASHER_MSG_POWERON, //开机
     WASHER_MSG_POWEROFF,//关机
+    WASHER_MSG_START,   //开始工作
     WASHER_MSG_PAUSE,   //暂停
     WASHER_MSG_CONTINUE,//继续
 }WASHER_MSG;
