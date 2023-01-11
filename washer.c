@@ -10,7 +10,7 @@ void mod_washer_work(void)
     {
         if(washerObj->event)
         {
-            // washerObj->event(event,param);//执行事件处理函数
+            // FSM_eventHandle(washerObj,event,param);//执行事件处理函数
         }
         if(washerObj->work)
         {
