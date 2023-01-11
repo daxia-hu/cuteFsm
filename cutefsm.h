@@ -2,7 +2,8 @@
 #define CUTE_FSM_H
 #include "stdint.h"
 #define NULL ((void *)0)
-#define ASSERT(x) //
+#define DEBUG //
+#define ASSERT(x) do{if(!(x)){DEBUG("<ERROR> file:%s,line:%d\r\n", __FILE__, __LINE__);}}while(0);
 typedef struct FsmSimpleNode_t FsmSimpleNode;
 typedef struct FsmObj_t FsmObj;
 // 转换类型
